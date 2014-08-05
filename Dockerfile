@@ -2,8 +2,8 @@ FROM centos
 MAINTAINER Kang Chang Ki
 
 # install packages
-RUN yum -y install nginx emacs-nox git wget tar
-RUN yum clean all
+RUN yum -y install nginx git wget tar
+RUN yum -y install emacs-nox # removable
 
 # install packages from web
 RUN wget http://nodejs.org/dist/v0.10.30/node-v0.10.30-linux-x64.tar.gz
@@ -21,10 +21,6 @@ RUN echo "alias ls='ls -aF --color'" >> ~/.bashrc
 RUN echo "alias ll='ls -al'" >> ~/.bashrc
 RUN echo "alias e='emacs'" >> ~/.bashrc
 RUN echo "" >> ~/.bashrc
-RUN echo "source /workdir/rc.sh" >> ~/.bashrc
-
-# expose ports
-EXPOSE 3000 8000
 
 # main
-CMD /node/bin/node /docker-templates/hello.js
+CMD /node/bin/node /docker-templates/workdir/hello.js

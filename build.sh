@@ -1,2 +1,2 @@
-docker rmi testweb2
-docker build -t testweb2 .
+docker rmi testweb
+docker build -t testweb .
