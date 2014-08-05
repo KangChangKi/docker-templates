@@ -6,5 +6,5 @@ docker run \
 --name testweb-1 \
 -it \
 --rm \
---env-file=setting/env-file \
+--env-file=setting/env-web \
 testweb
