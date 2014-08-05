@@ -20,6 +20,8 @@ RUN echo "" >> ~/.bashrc
 RUN echo "alias ls='ls -aF --color'" >> ~/.bashrc
 RUN echo "alias ll='ls -al'" >> ~/.bashrc
 RUN echo "alias e='emacs'" >> ~/.bashrc
+RUN echo "" >> ~/.bashrc
+RUN echo "source /workdir/rc.sh" >> ~/.bashrc
 
 # expose ports
 EXPOSE 3000 8000
