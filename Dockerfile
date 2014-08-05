@@ -9,12 +9,10 @@ RUN wget http://nodejs.org/dist/v0.10.30/node-v0.10.30-linux-x64.tar.gz
 RUN tar xfvz node-v0.10.30-linux-x64.tar.gz
 RUN ln -s node-v0.10.30-linux-x64 node
 
-# download files & run rc.sh
-RUN mkdir -p /testdata
-RUN cd /testdata
-RUN git clone https://github.com/KangChangKi/test.git /testdata/test
+# download docker-template files
+RUN git clone https://github.com/KangChangKi/docker-templates.git /docker-templates
 
-# setup
+# setup .bashrc
 RUN echo "" >> ~/.bashrc
 RUN echo "export PATH=$PATH:/node/bin" >> ~/.bashrc
 RUN echo "" >> ~/.bashrc
