@@ -20,5 +20,8 @@ RUN echo "alias ls='ls -aF --color'" >> ~/.bashrc
 RUN echo "alias ll='ls -al'" >> ~/.bashrc
 RUN echo "alias e='emacs'" >> ~/.bashrc
 
+# expose ports
+EXPOSE 3000 8000
+
 # main
 CMD node /docker-templates/hello.js
