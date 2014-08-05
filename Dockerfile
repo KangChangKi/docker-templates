@@ -24,4 +24,4 @@ RUN echo "alias e='emacs'" >> ~/.bashrc
 EXPOSE 3000 8000
 
 # main
-CMD node /docker-templates/hello.js
+CMD /node/bin/node /docker-templates/hello.js
