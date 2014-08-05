@@ -14,13 +14,7 @@ RUN ln -s node-v0.10.30-linux-x64 node
 RUN git clone https://github.com/KangChangKi/docker-templates.git /docker-templates
 
 # setup .bashrc
-RUN echo "" >> ~/.bashrc
-RUN echo "export PATH=$PATH:/node/bin" >> ~/.bashrc
-RUN echo "" >> ~/.bashrc
-RUN echo "alias ls='ls -aF --color'" >> ~/.bashrc
-RUN echo "alias ll='ls -al'" >> ~/.bashrc
-RUN echo "alias e='emacs'" >> ~/.bashrc
-RUN echo "" >> ~/.bashrc
+RUN cat /docker-templates/setting/bashrc >> ~/.bashrc
 
 # main
 CMD /node/bin/node /docker-templates/workdir/hello.js
