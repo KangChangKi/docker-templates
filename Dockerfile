@@ -20,5 +20,5 @@ RUN echo "alias ls='ls -aF --color'" >> ~/.bashrc
 RUN echo "alias ll='ls -al'" >> ~/.bashrc
 RUN echo "alias e='emacs'" >> ~/.bashrc
 
-
-
+# main
+CMD node /docker-templates/hello.js
