@@ -3,6 +3,7 @@ MAINTAINER Kang Chang Ki
 
 # install packages
 RUN yum -y install nginx emacs-nox git wget tar
+RUN yum clean all
 
 # install packages from web
 RUN wget http://nodejs.org/dist/v0.10.30/node-v0.10.30-linux-x64.tar.gz
