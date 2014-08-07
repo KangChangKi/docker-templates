@@ -16,5 +16,8 @@ RUN git clone https://github.com/KangChangKi/docker-templates.git /docker-templa
 # setup .bashrc
 RUN cat /docker-templates/setting/bashrc >> ~/.bashrc
 
+# add directories
+ADD . /workdir
+
 # main
 CMD /node/bin/node /docker-templates/workdir/hello.js
