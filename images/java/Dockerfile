@@ -1,16 +1,23 @@
-# Java: Scala, Groovy
+# Java, Scala
+# Groovy, Grails, Gradle
+# Spark
 
 FROM debian:jessie
+MAINTAINER ChangKi.Kang
+
+###############
+# Common Installations
 
 RUN apt-get update && apt-get install -y \
     openssh-server \
     tar unzip \
     wget curl \
-    emacs24-nox \
+    nmap \
+    emacs24-nox info \
     git
 
-ADD ./custom /custom
-RUN echo ". /custom/bashrc" >> /.bashrc
+###############
+# Before Installations
 
 WORKDIR /usr/local/lib
 
@@ -44,5 +51,42 @@ ENV GRADLE_VER 2.0
 
 RUN curl -s get.gvmtool.net | bash
 
+###############
+# Apache Spark
+
+ENV SPARK_VER 1.0.2
+ENV SPARK_DIST_TYPE hadoop2
+
+#RUN wget http://apache.tt.co.kr/spark/spark-$SPARK_VER/spark-$SPARK_VER-bin-$SPARK_DIST_TYPE.tgz && \
+RUN wget http://apache.mirror.cdnetworks.com/spark/spark-$SPARK_VER/spark-$SPARK_VER-bin-$SPARK_DIST_TYPE.tgz && \
+    tar xfvz spark-$SPARK_VER-bin-$SPARK_DIST_TYPE.tgz && \
+    ln -s spark-$SPARK_VER-bin-$SPARK_DIST_TYPE spark && \
+    rm -f spark-$SPARK_VER-bin-$SPARK_DIST_TYPE.tgz
+
+###############
+# Custom Directory
+
+ADD ./custom /custom
+RUN echo ". /custom/bashrc" >> /.bashrc
+
+###############
+# Working Directory
+
 RUN mkdir -p /work
 WORKDIR /work
+RUN ln -s /custom custom && \
+    ln -s /usr/local/lib lib && \
+    ln -s /usr/local/lib/spark/sbin sbin && \
+    ln -s /usr/local/lib/spark/conf conf
+
+###############
+# Inter-Container Communication
+
+EXPOSE 22
+
+###############
+# Ready for SSH Server
+
+RUN mkdir /var/run/sshd
+RUN echo 'root:screencast' | chpasswd
+

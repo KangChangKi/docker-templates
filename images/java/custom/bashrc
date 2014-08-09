@@ -4,6 +4,8 @@ alias ls='ls -aF --color'
 
 export JAVA_HOME=/usr/local/lib/jdk
 export SCALA_HOME=/usr/local/lib/scala
-export PATH=$PATH:/usr/local/lib/jdk/bin:/usr/local/lib/scala/bin
+export PATH=$PATH:/usr/local/lib/jdk/bin:/usr/local/lib/scala/bin:/usr/local/lib/spark/bin
 
 . /.gvm/bin/gvm-init.sh
+
+/usr/sbin/sshd -D &

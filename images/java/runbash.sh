@@ -1,5 +1,5 @@
-IMAGE_NAME=myjessie
-CONT_NAME=myjessie1
+IMAGE_NAME=ck_java:base
+CONT_NAME=java
 
-docker run -it --rm --name $CONT_NAME $IMAGE_NAME /bin/bash
+docker run -it --rm -P --name $CONT_NAME $IMAGE_NAME /bin/bash
 
