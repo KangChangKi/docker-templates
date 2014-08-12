@@ -1,25 +1,17 @@
-FROM     ubuntu:12.04
+# ck_base:base
+
+#FROM debian:wheezy
+FROM debian:jessie
 MAINTAINER ChangKi.Kang
 
 ###############
 # Common Installations
+
 # delete not necessary packages later in the other Dockerfile.
 RUN apt-get update && apt-get install -y \
     openssh-server net-tools tar unzip wget \
     curl nmap git lsof telnet \
-    dnsutils emacs23-nox inetutils-ping inetutils-traceroute
-
-###############
-# sshd setting
-# ref: http://docs.docker.com/examples/running_ssh_service/
-
-RUN mkdir /var/run/sshd
-
-# change root's password later
-RUN echo 'root:screencast' | chpasswd
-
-EXPOSE 22
-CMD    ["/usr/sbin/sshd", "-D"]
+    dnsutils emacs24-nox
 
 ###############
 # Custom Directory
@@ -35,3 +27,4 @@ WORKDIR /work
 RUN ln -s /custom custom && \
     ln -s /usr/local local
 
+WORKDIR /work

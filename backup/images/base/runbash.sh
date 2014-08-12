@@ -6,6 +6,5 @@ docker run \
     --rm \
     --name $CONT_NAME \
     -h $CONT_NAME \
-    -p 1022:22 \
     $IMAGE_NAME /bin/bash
 

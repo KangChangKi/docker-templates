@@ -2,10 +2,9 @@ IMAGE_NAME=ck_base:base
 CONT_NAME=base
 
 docker run \
-    -it \
-    --rm \
+    -d \
     --name $CONT_NAME \
     -h $CONT_NAME \
     -p 1022:22 \
-    $IMAGE_NAME /bin/bash
+    $IMAGE_NAME
 

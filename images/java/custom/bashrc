@@ -1,13 +1,3 @@
-alias e='emacs'
-alias ll='ls -al'
-alias ls='ls -aF --color'
-
 export JAVA_HOME=/usr/local/jdk
 export SCALA_HOME=/usr/local/scala
-export SPARK_PREFIX=/usr/local/spark
-export PATH=$PATH:$JAVA_HOME/bin:$SCALA_HOME/bin:$SPARK_PREFIX/bin
-
-. /.gvm/bin/gvm-init.sh
-
-/usr/sbin/sshd -D &
-service consul start
+export PATH=$PATH:$JAVA_HOME/bin:$SCALA_HOME/bin

@@ -1,0 +1,2 @@
+export SPARK_PREFIX=/usr/local/spark
+export PATH=$PATH:$SPARK_PREFIX/bin:$SPARK_PREFIX/sbin

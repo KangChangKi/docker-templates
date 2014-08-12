@@ -1,5 +1,5 @@
-IMAGE_NAME=ck_base:base
-CONT_NAME=base
+IMAGE_NAME=ck_java:spark
+CONT_NAME=spark
 
 docker run \
     -it \
