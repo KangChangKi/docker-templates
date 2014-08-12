@@ -4,6 +4,7 @@ SCALA_VER=2.11.2
 SPARK_VER=1.0.2
 SPARK_DIST_TYPE=hadoop2
 
+pushd .
 cd /usr/local
 
 wget http://downloads.typesafe.com/scala/2.11.2/scala-$SCALA_VER.tgz && \
@@ -23,3 +24,6 @@ export SCALA_HOME=/usr/local/scala
 export SPARK_PREFIX=/usr/local/spark
 export PATH=\$PATH:\$SCALA_HOME/bin:\$SPARK_PREFIX/bin
 EOF
+
+popd
+cp ./startworker.sh /usr/local/spark
