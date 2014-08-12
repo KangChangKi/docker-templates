@@ -11,5 +11,6 @@ docker run \
     -p 18080:18080 \
     -p 8081:8081 \
     -p 7077:7077 \
+    -p 5000:5000 \
     $IMAGE_NAME /custom/spark/runslave.sh
 

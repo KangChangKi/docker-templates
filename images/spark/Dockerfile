@@ -38,12 +38,9 @@ WORKDIR /work
 RUN ln -s /usr/local/spark/sbin sbin && \
     ln -s /usr/local/spark/conf conf
 
-# replace it to the real spark master ip address
-# spark://$SPARK_MASTER_IP:7077
-ENV SPARK_MASTER_IP 127.0.0.1
-
 ###############
 # Expose ports
 # ref: https://spark.apache.org/docs/latest/spark-standalone.html
 
-EXPOSE 8080 4040 18080 8081 7077
+EXPOSE 8080 4040 18080 8081 7077 5000
+
