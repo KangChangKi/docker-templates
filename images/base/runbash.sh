@@ -1,5 +1,5 @@
-IMAGE_NAME=ck_java:base
-CONT_NAME=java
+IMAGE_NAME=ck_base:base
+CONT_NAME=base
 
 docker run \
     -it \

@@ -2,18 +2,19 @@
 # Groovy, Grails, Gradle
 # Spark
 
-#FROM debian:wheezy
-FROM debian:jessie
+FROM centos:centos6
 MAINTAINER ChangKi.Kang
 
 ###############
 # Common Installations 1
 
-RUN apt-get update && apt-get install -y \
-    openssh-server net-tools \
+RUN rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+RUN yum update -y && yum install -y \
+    openssh-server tinc net-tools \
     tar unzip \
     wget curl \
     nmap \
+    emacs-nox info \
     git
 
 ###############
@@ -97,37 +98,3 @@ EXPOSE 22
 RUN mkdir /var/run/sshd
 RUN echo 'root:screencast' | chpasswd
 
-###############
-# Common Installations 2
-
-RUN apt-get install -y \
-    emacs24-nox info \
-    lsof telnet dnsutils
-
-###############
-# Install Consul
-
-WORKDIR /usr/local
-
-ENV CONSUL_VER 0.3.1
-ENV CONSUL_SERVER_IP 10.64.144.219
-
-RUN wget https://dl.bintray.com/mitchellh/consul/${CONSUL_VER}_linux_amd64.zip
-RUN unzip ${CONSUL_VER}_linux_amd64.zip
-RUN rm ${CONSUL_VER}_linux_amd64.zip
-RUN ln -s /usr/local/consul /usr/local/bin/consul
-
-RUN mkdir -p /tmp/consul
-RUN mkdir -p /etc/consul.d
-#RUN consul agent -server -bootstrap -data-dir /tmp/consul -config-dir /etc/consul.d
-#RUN consul agent -data-dir /tmp/consul -config-dir /etc/consul.d -join ${CONSUL_SERVER_IP}
-
-ADD ./custom/init_d_env /etc/init.d/init_d_env
-RUN echo "CONSUL_SERVER_IP=${CONSUL_SERVER_IP}" >> /etc/init.d/init_d_env
-
-ADD ./custom/consul /etc/init.d/consul
-WORKDIR /etc/init.d
-RUN chmod 755 /etc/init.d/consul
-RUN update-rc.d consul defaults
-
-WORKDIR /work

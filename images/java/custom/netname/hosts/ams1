@@ -1,0 +1,20 @@
+# internalnyc
+# Subnet = 10.0.0.2/32
+
+# ams1
+Subnet = 10.0.0.3/32
+
+
+-----BEGIN RSA PUBLIC KEY-----
+MIICCgKCAgEAvB89xOeIJjHjfNsjFfYTdNbppGAlVcQ1k9x6W9g3aOncTkaZEezd
+JbX6bBLnW2mncGFmSgQW9WBp4jJ/55rpO/BduFRrNtp0S+pesmCstmrIGSBIVS+f
+VgQzsSxe14uJrsWdLYQPx1XXOhB5xsgdoNj8P6jwtRBzq1a+UkZfPQSP0jF0Tkod
+775Mxbhw8SQfAcaUHw5AeNLxg05GYgiBegvua+ynjiDcyGpQCbyrlQNH4Fm9P+yT
+/ErlGMtcAg6ucc4rc9/bcffA0AwmvI+R6IcULrLvRTouA3butfiQx5ibm+UC4lg7
+tZNY0LVSEih5mrhAhpFr38QbSY+TtX+6Od8P20JMBp3YvFrL5dnUztqtQaep4PYq
+EdIL+irHdEPAPXb9NZ2e+3GSzvRAI3xsw9xskWG/YM/hS1HvkCQcSdxZ/XqoKUZa
+AzucJwj+5NBKYZU9ppr+4p6IH7cr6LVbYLVp8qGTU2DhYlfOrntTPe3W+7tD+mQw
+3iI1WCsbldGw6ROl27y3AK0eq4hPfqeBgnLRC4pCw/+x1rP02elksizilSsY9GDG
+QFCf/zaMCNcsdy5sWFgOdkxfFyLoH7VbvUDcJTameRmbQpERBk3bHwbX6UiCW8Q4
+C46n9xoOX5/KgQ9VY53BHq3YQKe1EPTVnfvEmafsASgUzBbtK6dRv4ECAwEAAQ==
+-----END RSA PUBLIC KEY-----

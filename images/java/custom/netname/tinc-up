@@ -1,0 +1,2 @@
+# Rename it to an unique IP address for each node.
+ifconfig $INTERFACE 10.0.0.5 netmask 255.255.255.0
